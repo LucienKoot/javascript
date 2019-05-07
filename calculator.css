@@ -1,12 +1,5 @@
-.button {
-    background-color: green;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 4px 2px;
-  border-radius: 50%;
-}
+.id {
+    border-style: solid;
+    border-width: 5px;
+    border-length: 15px;
+  }
