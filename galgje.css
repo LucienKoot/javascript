@@ -1,0 +1,14 @@
+button {
+    padding: 15px;
+    height: auto;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: rgb(235, 110, 183);
+  border: 5px;
+  border-color: black;
+  border-radius: 30px;
+  
+}
