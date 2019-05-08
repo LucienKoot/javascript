@@ -51,17 +51,28 @@ console.log("Medium");
 console.log("Large");
 }
 
-*/
 
 
 let number = 0;
-while (number <=33) {
+while (number <=6887) {
     console.log(number);
-    number = number + 3;
+    number = number + 14;
 }
 
+let yourName;
+do {
+    yourName = prompt("WIE ben jij?");
+} while (!yourName);
+console.log(yourName);
 
+*/
 
+if (false != true) {
+    console.log("lekker belangrijk");
+    if (3 < 4) {
+        console.log('dat is geen verassing');
+    }
+}
 
 
 
