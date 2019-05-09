@@ -1,3 +1,5 @@
+$(function() {
+
 let ten = 10;
 console.log(ten * ten);
 
@@ -11,9 +13,7 @@ let jansDebt = 150;
 jansDebt = jansDebt - 40;
 console.log(jansDebt);
 
-let lucienTegoed = 300;
-lucienTegoed = lucienTegoed - 243;
-console.log(lucienTegoed);
+
 
 let lucienKrijgtvanMike = 400;
 lucienKrijgtvanMike = lucienKrijgtvanMike - 100;
@@ -51,8 +51,6 @@ console.log("Medium");
 console.log("Large");
 }
 
-
-
 let number = 0;
 while (number <=6887) {
     console.log(number);
@@ -65,7 +63,7 @@ do {
 } while (!yourName);
 console.log(yourName);
 
-*/
+
 
 if (false != true) {
     console.log("lekker belangrijk");
@@ -75,12 +73,72 @@ if (false != true) {
 }
 
 
+switch (prompt ("hoe is het weer buiten?")) {
+    case "regen":
+    console.log("paraplu meenemen !!!");
+    break;
+    case "zonnig": 
+    console.log("ZWEMBROEK mee!!");
+    case "koud":
+    console.log("Muts op !!");
+    break;
+    default:
+    console.log("niet te voorspellen")
+    break;
+}
+*/
+/*Opdracht....
+
+Write a loop that makes seven calls to console.log to output the following
+triangle:
+#
+##
+###
+####
+#####
+######
+#######
 
 
 
 
+let number = 0;
+while (number <=6887) {
+    console.log(number);
+    number = number + 14;
+
+
+let number = 0 "#";
+while (number <=15) { 
+    console.log(number)
+    number = number + 1
+
+}
+
+
+const square = function(x) {
+    return x * x;
+    };
+    console.log(square(12));
+
+*/
+
+
+let lucienTegoed = 300;
+lucienTegoed = lucienTegoed - 189;
+var demo = document.getElementById("demo");
+demo.innerHTML = lucienTegoed;
+
+document.getElementById("demo").innerHTML = "Even oefenen met innerHTML ";
 
 
 
 
+// onderste laten staan i.v.m. laden pagina voordat script wordt uitgevoerd.
 
+});
+
+/*
+var demo = document.getElementById("demo");
+demo.innerHTML = .........;
+*/
