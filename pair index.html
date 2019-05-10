@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <p id="input"></p>
+    <button onclick="sortNr()">Click here</button>
+    <p id="sorted"></p>
+
+
+
+    <script>
+        var nr = ["2", "13", "7", "11"];
+        var i, len, text;
+        for (i = 0, len = nr.length, text = ""; i < len; i++) {
+            text += nr[i] + "<br />";
+        }
+        document.getElementById("input").innerHTML = text;
+
+        function sortNr() {
+            nr.sort(function (a, b) { return a - b });
+            var sortedcol = nr.split(" ");
+            document.getElementById("sorted").innerHTML = sortedcol;
+        }
+    </script>
+
+</body>
+
+</html>
