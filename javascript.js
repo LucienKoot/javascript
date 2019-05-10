@@ -163,11 +163,6 @@ function test()
 }
 test()
 */
-
-
-// 
-
-
 // onderste laten staan i.v.m. laden pagina voordat script wordt uitgevoerd.
 
 });
