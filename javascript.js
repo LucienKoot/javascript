@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
 
 let ten = 10;
 console.log(ten * ten);
@@ -29,7 +29,7 @@ console.log(groet + naam);
 //onderstaand werken allemaal, maar even als comment gezet, anders gaan ze elkaar storen, maar ik wil de functies even bewaren.
 
 
-/*prompt("Enter PINcode \n to get your acces.");
+prompt("Enter PINcode \n to get your acces.");
 
 console.log(Math.max(66, 88));
 
@@ -121,7 +121,7 @@ const square = function(x) {
     };
     console.log(square(12));
 
-*/
+
 
 
 let lucienTegoed = 300;
@@ -129,9 +129,43 @@ lucienTegoed = lucienTegoed - 189;
 var demo = document.getElementById("demo");
 demo.innerHTML = lucienTegoed;
 
+
+
 document.getElementById("demo").innerHTML = "Even oefenen met innerHTML ";
 
 
+var x = 3
+var y = 48
+var z = x + y
+document.getElementById("demo").innerHTML = z;
+//
+
+
+
+
+
+
+if (leeftijd < 12)
+{
+toegangsprijs = 5
+duiken = false
+}
+else
+{
+toegangsprijs = 10
+duiken = true
+} 
+document.write
+
+function test()
+{
+    document.write("stukje tekst testen in functie")
+}
+test()
+*/
+
+
+// 
 
 
 // onderste laten staan i.v.m. laden pagina voordat script wordt uitgevoerd.
@@ -142,3 +176,4 @@ document.getElementById("demo").innerHTML = "Even oefenen met innerHTML ";
 var demo = document.getElementById("demo");
 demo.innerHTML = .........;
 */
+
