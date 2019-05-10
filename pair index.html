@@ -7,25 +7,42 @@
 
 <body>
 
+    <ul id="unsorted">
+        <!--<li></li>-->
+    </ul>
+
     <p id="input"></p>
     <button onclick="sortNr()">Click here</button>
-    <p id="sorted"></p>
 
+    <ul id="sorted">
+       <!-- <li></li>-->
+    </ul>
 
 
     <script>
         var nr = ["2", "13", "7", "11"];
+        var unsorted = document.getElementById("unsorted");  
+        for(let i=0; i < nr.length; i++){
+            unsorted.innerHTML += "<li>"+nr[i] +"</li>";
+        }
+
         var i, len, text;
         for (i = 0, len = nr.length, text = ""; i < len; i++) {
             text += nr[i] + "<br />";
         }
-        document.getElementById("input").innerHTML = text;
+        //document.getElementById("input").innerHTML = "<li>"+text+"</li>";
 
         function sortNr() {
             nr.sort(function (a, b) { return a - b });
-            document.getElementById("sorted").innerHTML = nr;
+            var sorted = document.getElementById("sorted");
+           
+            for(let i=0; i < nr.length; i++){
+                sorted.innerHTML += "<li>"+nr[i] +"</li>";
+            }
         }
     </script>
+
+
 
 </body>
 
