@@ -2,47 +2,97 @@
 <html>
 
 <head>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: blueviolet;
+            background-color: beige;
+        }
 
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        .container {
+            display: flex;
+            margin: 50px;
+            justify-content: center;
+        }
+
+        .container2 {
+            display: block;
+            width: 50px;
+        }
+
+        #unsorted {
+            margin: 30px 50px 0 0;
+        }
+
+        #sorted {
+            margin: 30px 0 0 130px;
+        }
+
+        #button1 {
+            max-height: 40px;
+            min-width: 130px;
+            margin: 40px 0 10px 0;
+            background-color: aqua;
+        }
+        #button2 {
+            max-height: 40px;
+            min-width: 130px;
+            margin: 10px 0 0px 0;
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
 
-    <ul id="unsorted">
-        <!--<li></li>-->
-    </ul>
+    <div class="container">
+        <ul id="unsorted">
+        </ul>
 
-    <p id="input"></p>
-    <button onclick="sortNr()">Click here</button>
-
-    <ul id="sorted">
-       <!-- <li></li>-->
-    </ul>
-
+        <p id="input"></p>
+    <div class="container2"> 
+        <button id="button1" onclick="sortNr()">Ascending</button>
+        
+        <button id="button2" onclick="sortNrR()">Descending</button>
+    </div>
+        <ul id="sorted">
+        </ul>
+    </div>
 
     <script>
         var nr = ["2", "13", "7", "11"];
-        var unsorted = document.getElementById("unsorted");  
-        for(let i=0; i < nr.length; i++){
-            unsorted.innerHTML += "<li>"+nr[i] +"</li>";
+        var unsorted = document.getElementById("unsorted");
+        for (let i = 0; i < nr.length; i++) {
+            unsorted.innerHTML += "<li>" + nr[i] + "</li>";
         }
-
         var i, len, text;
         for (i = 0, len = nr.length, text = ""; i < len; i++) {
             text += nr[i] + "<br />";
         }
-        //document.getElementById("input").innerHTML = "<li>"+text+"</li>";
-
         function sortNr() {
             nr.sort(function (a, b) { return a - b });
             var sorted = document.getElementById("sorted");
-           
-            for(let i=0; i < nr.length; i++){
-                sorted.innerHTML += "<li>"+nr[i] +"</li>";
+            sorted.innerHTML = "";
+            for (let i = 0; i < nr.length; i++) {
+                sorted.innerHTML += "<li>" + nr[i] + "</li>";
+            }
+        }
+        function sortNrR() {
+            nr.sort(function (a, b) { return b - a });
+            var sorted = document.getElementById("sorted");
+            sorted.innerHTML = "";
+            for (let i = 0; i < nr.length; i++) {
+                sorted.innerHTML += "<li>" + nr[i] + "</li>";
             }
         }
     </script>
-
-
 
 </body>
 
