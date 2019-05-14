@@ -10,70 +10,76 @@
 
 <body>
 
-    <form action="/signup" method="post">
+    <form onsubmit="return false;">
         <p>
             <label> --- O R D E R F O R M --- </label><br><br><br>
 
-            <!--<label>
-                <input type="radio" name="title" value="mr" id="mr">
-                Mr
-            </label>
-            <label>
-                <input type="radio" name="title" value="mrs" id="mrs">
-                Mrs
-            </label>
-            <label>
-                <input type="radio" name="title" value="miss" id="miss">
-                Miss
-            </label>
-        </p> -->
-        <p>
-            <label>First name</label><br>
-            <input type="text" name="first_name" id="firstName">
-        </p>
-        <p>
-            <label>Last name</label><br>
-            <input type="text" name="last_name" id="lastName">
-        </p>
-        <p>
-            <label>Email</label><br>
-            <input type="text" name="email" id="email">
-        </p>
-        <p>
-            <label>Phone number</label><br>
-            <input type="text" name="phone" id="phone">
-        </p>
+            
+            <p>
+                <label>First name</label><br>
+                <input style="text-transform:uppercase" type="text" name="first_name" id="firstName">
+            </p>
+            <p>
+                <label>Last name</label><br>
+                <input style="text-transform:uppercase" type="text" name="last_name" id="lastName">
+            </p>
+            <p>
+                <label>Email</label><br>
+                <input type="text" name="email" id="email">
+            </p>
+            <p>
+                <label>Phone number</label><br>
+                <input type="text" name="phone" id="phone">
+            </p>
 
-        <p>
-            <label>Country</label><br>
-            <input type="text" name="country" id="country">
-        </p>
-        <p>
-            <label>Your Remark:</label><br>
-            <input type="text" name="Remark" id="yourRemark">
-        </p>
-        <p>
-            <button type="reset">Reset form</button>
-        
-            <button onclick="confirmation()">Try it</button>
+            <p>
+                <label>Country</label><br>
+                <input style="text-transform:uppercase" type="text" name="country" id="country">
+            </p>
+            <p>
+                <label>Your Remark:</label><br>
+                <input style="text-transform:uppercase" type="text" name="Remark" id="yourRemark">
+            </p>
+            <p>
+                <button type="reset">Reset form</button>
 
-            <p id="output"></p>
-        
-        </p>
+                <button onclick="confirmation()">CONFIRM HERE YOUR ORDER</button>
+
+             <div> 
+                <p id="output1"></p>
+                <p id="output2"></p>
+                <p id="output3"></p>
+                <p id="output4"></p>
+                <p id="output5"></p>
+                <p id="output6"></p>
+
+            </div> 
+
+            </p>
     </form>
 
-<script>
-//JAVASCRIPT PART !!
-//alert ("Thank you for the order, /n we received the following information:");
-//<button onclick="confirmation()">Try it</button>
-//<p id="demo"></p>
+    <script>
 
-<script>
+        function confirmation() {
+            var fn = document.getElementById("firstName").value;
+            var ln = document.getElementById("lastName").value;
+            var em = document.getElementById("email").value;
+            var ph = document.getElementById("phone").value;
+            var co = document.getElementById("country").value;
+            var re = document.getElementById("yourRemark").value
 
-function confirmation() {
-  var x = document.getElementById("firstName").value;
-  document.getElementById("output").innerHTML = x;
-}
+
+            document.getElementById("output1").innerHTML = fn;
+            document.getElementById("output2").innerHTML = ln;
+            document.getElementById("output3").innerHTML = em;
+            document.getElementById("output4").innerHTML = ph;
+            document.getElementById("output5").innerHTML = co;
+            document.getElementById("output6").innerHTML = re;
+
+
+        }
+
+    </script>
 </body>
 
 </html>
