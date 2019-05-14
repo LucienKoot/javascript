@@ -6,56 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
+
+    <!-- grid styling -->
+    <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+            /* The grid container */
+            .grid-container {
+              display: grid;
+              grid-template-areas: 
+                 
+                'left left middle middle right right'; 
+               
+            } 
+            
+            .left,
+            .middle,
+            .right {
+              padding: 10px;
+              
+            }
+            
+            /* Style the left column */
+            .left {
+              grid-area: left;
+            }
+            
+            /* Style the middle column */
+            .middle {
+              grid-area: middle;
+            }
+            
+            /* Style the right column */
+            .right {
+              grid-area: right;
+            }
+            
+            @media (max-width: 600px) {
+              .grid-container  {
+                grid-template-areas: 
+                  
+                  'left left left left left left' 
+                  'middle middle middle middle middle middle' 
+                  'right right right right right right' ;
+              }}
+            </style>
+    <!-- einde gridstyling -->
+
+
+
 </head>
 
 <body>
+    <div class="grid-container">
+        <div class="left" style="background-color:rgba(205, 243, 70, 0.432);">
+            <form onsubmit="return false;">
+                <p>
+                    <p> --- O R D E R F O R M --- </p><br>
+                    <p>
+                        <label>First name</label><br>
+                        <input style="text-transform:uppercase" type="text" name="first_name" id="firstName">
+                    </p>
+                    <p>
+                        <label>Last name</label><br>
+                        <input style="text-transform:uppercase" type="text" name="last_name" id="lastName">
+                    </p>
+                    <p>
+                        <label>Email</label><br>
+                        <input type="text" name="email" id="email">
+                    </p>
+                    <p>
+                        <label>Phone number</label><br>
+                        <input type="text" name="phone" id="phone">
+                    </p>
+                    <p>
+                        <label>Country</label><br>
+                        <input style="text-transform:uppercase" type="text" name="country" id="country">
+                    </p>
+                    <p>
+                        <label>Your Remark:</label><br>
+                        <input style="text-transform:uppercase" type="text" name="Remark" id="yourRemark">
+                    </p>
+                    <p>
+                        <button type="reset">Reset form</button></p>
+                    <button onclick="confirmation()">push information</button>
+        </div>
+        <div class="middle" style="background-color:rgba(205, 243, 70, 0.532);">
 
-    <form onsubmit="return false;">
-        <p>
-            <label> --- O R D E R F O R M --- </label><br><br><br>
+            <p>CHECK AREA AFTER INPUT</p>
 
-            
-            <p>
-                <label>First name</label><br>
-                <input style="text-transform:uppercase" type="text" name="first_name" id="firstName">
-            </p>
-            <p>
-                <label>Last name</label><br>
-                <input style="text-transform:uppercase" type="text" name="last_name" id="lastName">
-            </p>
-            <p>
-                <label>Email</label><br>
-                <input type="text" name="email" id="email">
-            </p>
-            <p>
-                <label>Phone number</label><br>
-                <input type="text" name="phone" id="phone">
-            </p>
+            <p id="output1"></p>
+            <p id="output2"></p>
+            <p id="output3"></p>
+            <p id="output4"></p>
+            <p id="output5"></p>
+            <p id="output6"></p>
 
-            <p>
-                <label>Country</label><br>
-                <input style="text-transform:uppercase" type="text" name="country" id="country">
-            </p>
-            <p>
-                <label>Your Remark:</label><br>
-                <input style="text-transform:uppercase" type="text" name="Remark" id="yourRemark">
-            </p>
-            <p>
-                <button type="reset">Reset form</button>
+        </div>
+        </p>
 
-                <button onclick="confirmation()">CONFIRM HERE YOUR ORDER</button>
+        <div class="right" style="background-color:rgba(205, 243, 70, 0.632);">
 
-             <div> 
-                <p id="output1"></p>
-                <p id="output2"></p>
-                <p id="output3"></p>
-                <p id="output4"></p>
-                <p id="output5"></p>
-                <p id="output6"></p>
-
-            </div> 
-
-            </p>
+            <p>CONFIRMATION</p>
+        </div>
+    </div>
     </form>
 
     <script>
