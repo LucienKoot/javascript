@@ -8,18 +8,13 @@
     <title>Form</title>
 </head>
 
-<script>
-
-
-
-</script>
-
 <body>
+
     <form action="/signup" method="post">
         <p>
-            <label>O R D E R F O R M </label><br><br><br>
+            <label> --- O R D E R F O R M --- </label><br><br><br>
 
-            <label>
+            <!--<label>
                 <input type="radio" name="title" value="mr" id="mr">
                 Mr
             </label>
@@ -31,7 +26,7 @@
                 <input type="radio" name="title" value="miss" id="miss">
                 Miss
             </label>
-        </p>
+        </p> -->
         <p>
             <label>First name</label><br>
             <input type="text" name="first_name" id="firstName">
@@ -42,33 +37,43 @@
         </p>
         <p>
             <label>Email</label><br>
-            <input type="email" name="email" id="email">
+            <input type="text" name="email" id="email">
         </p>
         <p>
             <label>Phone number</label><br>
-            <input type="tel" name="phone" id="phone">
+            <input type="text" name="phone" id="phone">
         </p>
 
         <p>
             <label>Country</label><br>
-            <input id="country">
-            <select>
-                <option>The Netherlands</option>
-                <option>Germany</option>
-                <option>United Kingdom</option>
-                <option>France</option>
-                <option>Belgium</option>
-            </select>
+            <input type="text" name="country" id="country">
         </p>
         <p>
             <label>Your Remark:</label><br>
             <input type="text" name="Remark" id="yourRemark">
         </p>
         <p>
-            <button>Send this Order</button>
             <button type="reset">Reset form</button>
+        
+            <button onclick="confirmation()">Try it</button>
+
+            <p id="output"></p>
+        
         </p>
     </form>
+
+<script>
+//JAVASCRIPT PART !!
+//alert ("Thank you for the order, /n we received the following information:");
+//<button onclick="confirmation()">Try it</button>
+//<p id="demo"></p>
+
+<script>
+
+function confirmation() {
+  var x = document.getElementById("firstName").value;
+  document.getElementById("output").innerHTML = x;
+}
 </body>
 
 </html>
