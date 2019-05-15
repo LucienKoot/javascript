@@ -9,53 +9,55 @@
 
     <!-- grid styling -->
     <style>
-            * {
-              box-sizing: border-box;
-            }
-            
-            body {
-              font-family: Arial, Helvetica, sans-serif;
-            }
-            /* The grid container */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The grid container */
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+
+                'left left middle middle right right';
+
+        }
+
+        .left,
+        .middle,
+        .right {
+            padding: 10px;
+
+        }
+
+        /* Style the left column */
+        .left {
+            grid-area: left;
+        }
+
+        /* Style the middle column */
+        .middle {
+            grid-area: middle;
+        }
+
+        /* Style the right column */
+        .right {
+            grid-area: right;
+        }
+
+        @media (max-width: 600px) {
             .grid-container {
-              display: grid;
-              grid-template-areas: 
-                 
-                'left left middle middle right right'; 
-               
-            } 
-            
-            .left,
-            .middle,
-            .right {
-              padding: 10px;
-              
+                grid-template-areas:
+
+                    'left left left left left left'
+                    'middle middle middle middle middle middle'
+                    'right right right right right right';
             }
-            
-            /* Style the left column */
-            .left {
-              grid-area: left;
-            }
-            
-            /* Style the middle column */
-            .middle {
-              grid-area: middle;
-            }
-            
-            /* Style the right column */
-            .right {
-              grid-area: right;
-            }
-            
-            @media (max-width: 600px) {
-              .grid-container  {
-                grid-template-areas: 
-                  
-                  'left left left left left left' 
-                  'middle middle middle middle middle middle' 
-                  'right right right right right right' ;
-              }}
-            </style>
+        }
+    </style>
     <!-- einde gridstyling -->
 
 
@@ -93,29 +95,36 @@
                         <input style="text-transform:uppercase" type="text" name="Remark" id="yourRemark">
                     </p>
                     <p>
-                        <button type="reset">Reset form</button></p>
-                    <button onclick="confirmation()">push information</button>
+                        <button id="button1" type="reset">RESET FORM</button></p>
+                    <button onclick="confirmation()">PUSH TO CHECK</button>
+
+
         </div>
+
         <div class="middle" style="background-color:rgba(205, 243, 70, 0.532);">
 
-            <p>CHECK AREA AFTER INPUT</p>
+            <p>Please check this area<br>after your input:<br><br></p>
 
-            <p id="output1"></p>
-            <p id="output2"></p>
-            <p id="output3"></p>
-            <p id="output4"></p>
-            <p id="output5"></p>
-            <p id="output6"></p>
+            <p id="output1" style="text-transform:capitalize"></p>
+            <p id="output2" style="text-transform:capitalize"></p>
+            <p id="output3" style="text-transform:capitalize"></p>
+            <p id="output4" style="text-transform:capitalize"></p>
+            <p id="output5" style="text-transform:capitalize"></p>
+            <p id="output6" style="text-transform:capitalize"></p>
+            <br>
 
+            <p>If information is not correct,<br> please check orderform:<br>
+
+                <button onclick="clean()">CLEAR</button></p><br>
+                <button onclick="contact()">SEND</button>
         </div>
         </p>
-
         <div class="right" style="background-color:rgba(205, 243, 70, 0.632);">
-
-            <p>CONFIRMATION</p>
+                <br><br>
+                <p id="output7" style="text-transform:capitalize"></p>
+            </form>
         </div>
     </div>
-    </form>
 
     <script>
 
@@ -125,8 +134,7 @@
             var em = document.getElementById("email").value;
             var ph = document.getElementById("phone").value;
             var co = document.getElementById("country").value;
-            var re = document.getElementById("yourRemark").value
-
+            var re = document.getElementById("yourRemark").value;
 
             document.getElementById("output1").innerHTML = fn;
             document.getElementById("output2").innerHTML = ln;
@@ -134,11 +142,22 @@
             document.getElementById("output4").innerHTML = ph;
             document.getElementById("output5").innerHTML = co;
             document.getElementById("output6").innerHTML = re;
+        }
+        function clean() {
+            document.getElementById("output1").innerText = "";
+            document.getElementById("output2").innerText = "";
+            document.getElementById("output3").innerText = "";
+            document.getElementById("output4").innerText = "";
+            document.getElementById("output5").innerText = "";
+            document.getElementById("output6").innerText = "";
 
-
+        }
+        function contact() {
+            document.getElementById("output7").innerHTML = "Wij hebben uw bericht in goede orde ontvangen! Wij nemen zo snel mogelijk contact op. "; 
         }
 
     </script>
+
 </body>
 
 </html>
