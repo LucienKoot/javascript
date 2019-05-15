@@ -5,71 +5,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Form</title>
+    <title>Booking Form</title>
 
-    <!-- grid styling -->
+    
     <style>
+/* styling table */
+th, td {
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+/* styling form */
+
+
+
+/* styling grid */
         * {
             box-sizing: border-box;
         }
 
         body {
             font-family: Arial, Helvetica, sans-serif;
+            margin: 0px;
         }
 
         /* The grid container */
         .grid-container {
             display: grid;
-            grid-template-areas:
-
-                'left left middle middle right right';
-
+            grid-template-columns: 1fr 1fr 1fr;
         }
 
-        .left,
-        .middle,
-        .right {
-            padding: 10px;
-
-        }
-
-        /* Style the left column */
         .left {
-            grid-area: left;
+            background-color: rgba(205, 243, 70, 0.332);
+            padding: 20px 10px 0 10px;
         }
 
-        /* Style the middle column */
         .middle {
-            grid-area: middle;
+            background-color: rgba(205, 243, 70, 0.432);
+            padding: 20px 0 40px 60px
         }
-
-        /* Style the right column */
         .right {
-            grid-area: right;
-        }
-
-        @media (max-width: 600px) {
-            .grid-container {
-                grid-template-areas:
-
-                    'left left left left left left'
-                    'middle middle middle middle middle middle'
-                    'right right right right right right';
-            }
+            background-color:rgba(205, 243, 70, 0.532);
+            padding: 120px 0 0 60px;
         }
     </style>
     <!-- einde gridstyling -->
-
-
-
 </head>
 
 <body>
     <div class="grid-container">
-        <div class="left" style="background-color:rgba(205, 243, 70, 0.432);">
-            <form onsubmit="return false;">
-                <p>
-                    <p> --- O R D E R F O R M --- </p><br>
+        <div class="left">
+            <h1>Book your flight</h1>
+            <div class="head">
+                <p> Choose your destination:</p>
+                <table id="myTable">
+                    <tr>
+                        <th>Destination</th>
+                        <th>Price</th>
+                        <th>Order</th>
+                    </tr>
+                    <tr>
+                        <td>Peru</td>
+                        <td>$ &nbsp; 900.00</td>
+                        <td><button id="1" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                    <tr>
+                        <td>Indonesia</td>I<td>$ &nbsp; 700.00</td>
+                        <td><button id="2" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                    <tr>
+                        <td>Brazil</td>
+                        <td>$ &nbsp; 800.00</td>
+                        <td><button id="3" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                    <tr>
+                        <td>Australia</td>
+                        <td>$ 1000.00</td>
+                        <td><button id="4" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                    <tr>
+                        <td>Mexico</td>
+                        <td>$ &nbsp; 500.00</td>
+                        <td><button id="5" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                    <tr>
+                        <td>Japan</td>
+                        <td>$ 1000.00</td>
+                        <td><button id="6" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                    <tr>
+                        <td>Iceland</td>
+                        <td>$ &nbsp; 300.00</td>
+                        <td><button id="7" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                    <tr>
+                        <td>Scotland</td>
+                        <td>$ &nbsp; 200.00</td>
+                        <td><button id="8" onclick="myOrder(id)">ORDER</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <form onsubmit="return false;">
+            <div class="middle">
+
+                <p>Thank you!<br> DESTINATION = <h1 id="dest">...</h1>
+                    <h2>Please fill in the form:</h2>
+                    <br>
                     <p>
                         <label>First name</label><br>
                         <input style="text-transform:uppercase" type="text" name="first_name" id="firstName">
@@ -95,15 +142,14 @@
                         <input style="text-transform:uppercase" type="text" name="Remark" id="yourRemark">
                     </p>
                     <p>
-                        <button id="button1" type="reset">RESET FORM</button></p>
-                    <button onclick="confirmation()">PUSH TO CHECK</button>
+                        <!-- <button id="button1" type="reset">RESET FORM</button></p> -->
+                        <button onclick="confirmation()">PUSH TO CHECK</button>
+            </div>
+        </form>
 
+        <div class="right">
 
-        </div>
-
-        <div class="middle" style="background-color:rgba(205, 243, 70, 0.532);">
-
-            <p>Please check this area<br>after your input:<br><br></p>
+            <h1>Your Input:</h1>
 
             <p id="output1" style="text-transform:capitalize"></p>
             <p id="output2" style="text-transform:capitalize"></p>
@@ -113,20 +159,43 @@
             <p id="output6" style="text-transform:capitalize"></p>
             <br>
 
-            <p>If information is not correct,<br> please check orderform:<br>
+            <p>If information is not correct,<br> please check form:<br><br>
+                <button onclick="clean()">CLEAR</button>
+            </p><br><br>
+            <button onclick="contact()">SEND</button>
 
-                <button onclick="clean()">CLEAR</button></p><br>
-                <button onclick="contact()">SEND</button>
-        </div>
-        </p>
-        <div class="right" style="background-color:rgba(205, 243, 70, 0.632);">
-                <br><br>
-                <p id="output7" style="text-transform:capitalize"></p>
-            </form>
+            </p>
+
+            <br><br>
+            <p id="output7"></p>
+
         </div>
     </div>
 
+
+
     <script>
+
+        function myOrder(id) {
+            myArray = ['Peru', 'Indonesia', 'Brazil', 'Australia', 'Mexico', 'Japan', 'Iceland', 'Scotland'];
+            if (id == 1) {
+                document.getElementById("dest").innerHTML = myArray[0];
+            } else if (id == 2) {
+                document.getElementById("dest").innerHTML = myArray[1];
+            } else if (id == 3) {
+                document.getElementById("dest").innerHTML = myArray[2];
+            } else if (id == 4) {
+                document.getElementById("dest").innerHTML = myArray[3];
+            } else if (id == 5) {
+                document.getElementById("dest").innerHTML = myArray[4];
+            } else if (id == 6) {
+                document.getElementById("dest").innerHTML = myArray[5];
+            } else if (id == 7) {
+                document.getElementById("dest").innerHTML = myArray[6];
+            } else if (id == 8) {
+                document.getElementById("dest").innerHTML = myArray[7];
+            }
+        }
 
         function confirmation() {
             var fn = document.getElementById("firstName").value;
@@ -153,7 +222,7 @@
 
         }
         function contact() {
-            document.getElementById("output7").innerHTML = "Wij hebben uw bericht in goede orde ontvangen! Wij nemen zo snel mogelijk contact op. "; 
+            document.getElementById("output7").innerHTML = "Wij hebben uw bericht in goede orde ontvangen! <br> Wij nemen zo snel mogelijk contact op.";
         }
 
     </script>

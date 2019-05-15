@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+            * {
+                font-family: 'Raleway', Verdana, sans-serif;
+                font-size: 16px;
+                text-align: center;
+            }
+            table {
+                border: 2px solid black;
+                min-width: 500px;
+                margin: auto;
+            }
+            td {
+                border: 1px dotted black;
+                max-width: 50px;
+                height: 50px;
+            }
+            button {
+                font-size: 12px;
+                text-transform: uppercase;
+                border: solid 1.5px;
+                border-color: #000;
+                color: #ffffff;
+                padding: 4px 20px 4px 20px;
+                font-weight: 700;
+                background: rgba(31, 76, 151, 0.9);
+                border-radius: 25px;
+            }
+            button:hover, .button:focus {
+                color: #000;
+                background-color: #f2f2f2;
+                opacity: 0.8;
+                transition-duration: 0.3s;
+                cursor: pointer;
+            }
+            #per, #ind, #bra, #aus {
+                font-size: 13px;
+                font-weight: 700;
+                background: rgba(255, 1, 14, 0.9);
+                
+            #per, #ind, #bra, #aus {  
+
+            }
+            #per:hover, #ind:hover, #bra:hover, #aus:hover {
+                color: #fff;
+                background-color: rgb(196, 0, 0);
+            }
+            
+        </style>
+    </head>
+    <body onload="createTable()">
+        <p><button onclick="sortTableC()">Sort by Country</button>
+        <button onclick="sortTableP()">Sort by Price</button></p>
+        
+    <script>
+        function createTable() {
+            var table = document.createElement('table');
+            table.setAttribute('id', 'table');
+            document.body.appendChild(table);
+            var arrHead = ['Country', 'Price', ''];
+            var arrValue = new Array();
+
+            
+
+            arrValue.push(['Peru', '899,-', '<button id="per">Book now</button>']);
+            arrValue.push(['Indonesia', '749,-', '<button id="ind">Book now</button>']);
+            arrValue.push(['Brasil', '849,-', '<button id="bra">Book now</button>']);
+            arrValue.push(['Australia', '799,-', '<button id="aus">Book now</button>']);
+            var tr = table.insertRow(-1);
+            for (var h = 0; h < arrHead.length; h++) {
+                var th = document.createElement('th');
+                th.innerHTML = arrHead[h];
+                tr.appendChild(th);
+            }
+            for (var c = 0; c <= arrValue.length - 1; c++) {
+                tr = table.insertRow(-1);
+                for (var p = 0; p < arrHead.length; p++) {
+                    var td = document.createElement('td');
+                    td = tr.insertCell(-1);
+                    td.innerHTML = arrValue[c][p];
+                }
+            }
+        }
+        function sortTableC() {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("table");
+            switching = true;
+            
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
+                    for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[0];
+                    y = rows[i + 1].getElementsByTagName("TD")[0];
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    }
+                }
+            }
+    
+            function sortTableP() {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.getElementById("table");
+            switching = true;
+            
+                while (switching) {
+                    switching = false;
+                    rows = table.rows;
+                    for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[1];
+                    y = rows[i + 1].getElementsByTagName("TD")[1];
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    }
+                }
+            }
+    </script>
+    </body>
+
+</html>
