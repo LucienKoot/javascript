@@ -7,23 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Booking Form</title>
 
-    
+
     <style>
-/* styling table */
-th, td {
-  text-align: left;
-  padding: 10px;
-}
+        /* styling table */
+        th,
+        td {
+            text-align: left;
+            padding: 10px;
+        }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2
-}
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
 
-/* styling form */
+        /* styling form */
 
 
 
-/* styling grid */
+        /* styling grid */
         * {
             box-sizing: border-box;
         }
@@ -48,8 +49,9 @@ tr:nth-child(even) {
             background-color: rgba(205, 243, 70, 0.432);
             padding: 20px 0 40px 60px
         }
+
         .right {
-            background-color:rgba(205, 243, 70, 0.532);
+            background-color: rgba(205, 243, 70, 0.532);
             padding: 120px 0 0 60px;
         }
     </style>
@@ -61,11 +63,12 @@ tr:nth-child(even) {
         <div class="left">
             <h1>Book your flight</h1>
             <div class="head">
-                <p> Choose your destination:</p>
+                <p> Choose your destination:</p><br>
+
                 <table id="myTable">
                     <tr>
-                        <th>Destination</th>
-                        <th>Price</th>
+                        <th><button oncklick="sortDest()">DESTINATION</button></th>
+                        <th><button onclick="sortPrice()" >Price</button></th>
                         <th>Order</th>
                     </tr>
                     <tr>
@@ -176,6 +179,9 @@ tr:nth-child(even) {
 
     <script>
 
+        
+
+      
         function myOrder(id) {
             myArray = ['Peru', 'Indonesia', 'Brazil', 'Australia', 'Mexico', 'Japan', 'Iceland', 'Scotland'];
             if (id == 1) {
@@ -223,6 +229,34 @@ tr:nth-child(even) {
         }
         function contact() {
             document.getElementById("output7").innerHTML = "Wij hebben uw bericht in goede orde ontvangen! <br> Wij nemen zo snel mogelijk contact op.";
+        }
+
+
+        function sortTable() {
+            var table, rows, switching, i, x, y,  shouldSwitch;
+            table = document.getElementById("myTable");
+            switching = true;
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+
+                    console.log(rows[i]);  
+                    
+                    x = rows[i].getElementsByTagName("TD")[0];
+                    y = rows[i + 1].getElementsByTagName("TD")[0];
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
         }
 
     </script>
