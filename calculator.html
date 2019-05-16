@@ -1,44 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>calculator</title>
-</head>
-
-<body>
 
 
-    <button onclick="myFunction1()">1</button>
-    <button onclick="myFunction2()">2</button>
-    <br>
-    <br>
-    <button onclick="myFunctionPlus()">+</button>
-    <br>
-    <button onclick="myFunctionTotal()">=</button>
-    <br>
-    <div id="total">test</div>
 
 
-    <!--
-        <button onclick="myFunction()">3</button>
-    <button onclick="myFunction()">4</button>
-    <button onclick="myFunction()">5</button>
-    <button onclick="myFunction()">6</button>
-    <button onclick="myFunction()">7</button>
-    <button onclick="myFunction()">8</button>
-    <button onclick="myFunction()">9</button>
-    <button onclick="myFunction()">0</button>
-    <button onclick="myFunction()">00</button>
--->
 
 
-    <input type="text" id="demo">
-<br>
 
-    <script src="calculator.js"></script>
-</body>
 
-</html>
+
+
+
+
+<form name="form1">
+        <table align="center">
+            <tr>
+                <td colspan="4">CALCULATOR</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <input type="text" name="result" placeholder="0" disabled style="text-align:right"></input>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="number(value)" value="1">1</button></td>
+                <td><button type="button" onclick="number(value)" value="2">2</button></td>
+                <td><button type="button" onclick="number(value)" value="3">3</button></td>
+                <td><button type="button" onclick="number(value)" value="+">+</button></td>
+            </tr>

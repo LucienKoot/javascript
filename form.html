@@ -63,13 +63,12 @@
         <div class="left">
             <h1>Book your flight</h1>
             <div class="head">
-                <p> Choose your destination:</p><br>
-
+                <p>Sort on country or price:</p>
                 <table id="myTable">
                     <tr>
-                        <th><button oncklick="sortDest()">DESTINATION</button></th>
-                        <th><button onclick="sortPrice()" >Price</button></th>
-                        <th>Order</th>
+                        <th><button onclick="sortTable(0)">COUNTRY</button></th>
+                        <th><button onclick="sortTable(1)">PRICE</button></th>
+                        <th></th>
                     </tr>
                     <tr>
                         <td>Peru</td>
@@ -77,7 +76,7 @@
                         <td><button id="1" onclick="myOrder(id)">ORDER</button></td>
                     </tr>
                     <tr>
-                        <td>Indonesia</td>I<td>$ &nbsp; 700.00</td>
+                        <td>Indonesia</td><td>$ &nbsp; 700.00</td>
                         <td><button id="2" onclick="myOrder(id)">ORDER</button></td>
                     </tr>
                     <tr>
@@ -87,7 +86,7 @@
                     </tr>
                     <tr>
                         <td>Australia</td>
-                        <td>$ 1000.00</td>
+                        <td>$ 1200.00</td>
                         <td><button id="4" onclick="myOrder(id)">ORDER</button></td>
                     </tr>
                     <tr>
@@ -170,6 +169,8 @@
             </p>
 
             <br><br>
+
+
             <p id="output7"></p>
 
         </div>
@@ -179,9 +180,45 @@
 
     <script>
 
-        
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
 
-      
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+
         function myOrder(id) {
             myArray = ['Peru', 'Indonesia', 'Brazil', 'Australia', 'Mexico', 'Japan', 'Iceland', 'Scotland'];
             if (id == 1) {
@@ -229,35 +266,11 @@
         }
         function contact() {
             document.getElementById("output7").innerHTML = "Wij hebben uw bericht in goede orde ontvangen! <br> Wij nemen zo snel mogelijk contact op.";
+
         }
 
 
-        function sortTable() {
-            var table, rows, switching, i, x, y,  shouldSwitch;
-            table = document.getElementById("myTable");
-            switching = true;
 
-            while (switching) {
-                switching = false;
-                rows = table.rows;
-                for (i = 1; i < (rows.length - 1); i++) {
-                    shouldSwitch = false;
-
-                    console.log(rows[i]);  
-                    
-                    x = rows[i].getElementsByTagName("TD")[0];
-                    y = rows[i + 1].getElementsByTagName("TD")[0];
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
-                if (shouldSwitch) {
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                }
-            }
-        }
 
     </script>
 
